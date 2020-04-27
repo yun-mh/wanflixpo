@@ -1,9 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import { TouchableOpacity } from "react-native";
+import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { apiImage } from "../../api";
 import Poster from "../Poster";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import Votes from "../Votes";
+import { trimText } from "../../utils";
 
 const Container = styled.View`
   height: 100%;
@@ -31,15 +33,13 @@ const Data = styled.View`
 
 const Title = styled.Text`
   color: white;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 19px;
   margin-bottom: 7px;
 `;
 
-const Votes = styled.Text`
-  color: lightgray;
+const VotesContainer = styled.View`
   margin-bottom: 7px;
-  font-size: 12px;
 `;
 
 const Overview = styled.Text`
@@ -51,7 +51,7 @@ const Overview = styled.Text`
 const Button = styled.View`
   margin-top: 10px;
   background-color: #e74c3c;
-  padding: 5px 10px;
+  padding: 7px 10px;
 `;
 
 const ButtonText = styled.Text`
@@ -62,13 +62,13 @@ const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
   <Container>
     <Background source={{ uri: apiImage(backgroundImage) }} />
     <Content>
-      <Poster url={apiImage(poster)} />
+      <Poster url={poster} />
       <Data>
-        <Title>{title.length < 20 ? title : `${title.slice(0, 20)}...`}</Title>
-        <Votes>⭐️ {votes} / 10</Votes>
-        <Overview>
-          {overview.length < 110 ? overview : `${overview.slice(0, 110)}...`}
-        </Overview>
+        <Title>{trimText(title, 20)}</Title>
+        <VotesContainer>
+          <Votes votes={votes} />
+        </VotesContainer>
+        <Overview>{trimText(overview, 110)}</Overview>
         <TouchableOpacity>
           <Button>
             <ButtonText>View Details</ButtonText>
@@ -79,12 +79,13 @@ const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
   </Container>
 );
 
-Slide.PropTypes = {
+Slide.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   backgroundImage: PropTypes.string.isRequired,
   votes: PropTypes.number.isRequired,
   overview: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
 };
 
 export default Slide;
