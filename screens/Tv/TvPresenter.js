@@ -5,16 +5,18 @@ import HorizontalSlider from "../../components/HorizontalSlider";
 import Vertical from "../../components/Vertical";
 import List from "../../components/List";
 import Horizontal from "../../components/Horizontal";
+import Swipers from "../../components/Swipers";
+import Slide from "../../components/Movies/Slide";
 
 const Container = styled.View`
   margin-top: 30px;
 `;
 
-export default ({ loading, popular, topRated, today }) => (
+export default ({ loading, popular, topRated, today, thisWeek }) => (
   <ScrollContainer loading={loading}>
     <Container>
-      <HorizontalSlider title={"Popular Shows"}>
-        {popular.map((show) => (
+      <HorizontalSlider title={"Top Rated"}>
+        {topRated.map((show) => (
           <Vertical
             id={show.id}
             key={show.id}
@@ -24,8 +26,21 @@ export default ({ loading, popular, topRated, today }) => (
           />
         ))}
       </HorizontalSlider>
-      <HorizontalSlider title={"Top Rated"}>
-        {topRated.map((show) => (
+      <Swipers>
+        {thisWeek.map((show) => (
+          <Slide
+            key={show.id}
+            id={show.id}
+            title={show.name}
+            overview={show.overview}
+            votes={show.vote_average}
+            backgroundImage={show.backdrop_path}
+            poster={show.poster_path}
+          />
+        ))}
+      </Swipers>
+      <HorizontalSlider title={"Popular Shows"}>
+        {popular.map((show) => (
           <Vertical
             id={show.id}
             key={show.id}
