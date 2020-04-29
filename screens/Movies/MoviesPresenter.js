@@ -10,8 +10,8 @@ import Slide from "../../components/Movies/Slide";
 
 const Container = styled.View``;
 
-export default ({ loading, nowPlaying, popular, upcoming }) => (
-  <ScrollContainer loading={loading}>
+export default ({ refreshFn, loading, nowPlaying, popular, upcoming }) => (
+  <ScrollContainer refreshFn={refreshFn} loading={loading}>
     <>
       <Swipers>
         {nowPlaying.map((movie) => (

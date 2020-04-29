@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "./Poster";
@@ -18,19 +18,23 @@ const Title = styled.Text`
   margin-bottom: 5px;
 `;
 
+const NoRates = styled.Text`
+  color: lightgray;
+`;
+
 const Vertical = ({ id, poster, title, votes }) => (
   <TouchableOpacity>
     <Container>
       <Poster url={poster} />
       <Title>{trimText(title, 10)}</Title>
-      <Votes votes={votes} />
+      {votes > 0 ? <Votes votes={votes} /> : <NoRates>No rates yet</NoRates>}
     </Container>
   </TouchableOpacity>
 );
 
 Vertical.propTypes = {
   id: PropTypes.number.isRequired,
-  poster: PropTypes.string.isRequired,
+  poster: PropTypes.string,
   title: PropTypes.string.isRequired,
   votes: PropTypes.number.isRequired,
 };
