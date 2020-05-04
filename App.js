@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import Stack from "./navigation/Stack";
 
 const cacheImages = (images) =>
@@ -25,7 +25,7 @@ export default function App() {
       require("./assets/splash.png"),
       require("./assets/no_image_found.jpg"),
     ]);
-    const fonts = cacheFonts([Ionicons.font]);
+    const fonts = cacheFonts([Ionicons.font, FontAwesome.font]);
     return Promise.all([...images, ...fonts]);
   };
   const onFinish = () => setIsReady(true);

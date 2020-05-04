@@ -1,11 +1,12 @@
 import React from "react";
-import { Dimensions, ActivityIndicator } from "react-native";
+import { Dimensions, ActivityIndicator, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import ScrollContainer from "../../components/ScrollContainer";
 import { apiImage } from "../../api";
 import Poster from "../../components/Poster";
 import Votes from "../../components/Votes";
 import { formatDate } from "../../utils";
+import Link from "../../components/Detail/Link";
 
 const Backdrop = styled.Image`
   width: 100%;
@@ -57,7 +58,7 @@ const DataValue = styled.Text`
   font-weight: 500;
 `;
 
-export default ({ loading, result }) => (
+export default ({ loading, result, openBrowser }) => (
   <ScrollContainer
     loading={false}
     contentContainerStyle={{ paddingBottom: 80 }}
@@ -68,57 +69,57 @@ export default ({ loading, result }) => (
         <Poster url={result.poster} />
         <Info>
           <Title>{result.title}</Title>
-          {result.votes && <Votes votes={result.votes} />}
+          {result.votes ? <Votes votes={result.votes} /> : null}
         </Info>
       </Container>
     </Header>
     <Data>
-      {result.overview && (
+      {result.overview ? (
         <>
           <DataName>Overview</DataName>
           <DataValue>{result.overview}</DataValue>
         </>
-      )}
-      {result.loading && (
+      ) : null}
+      {result.loading ? (
         <ActivityIndicator
           style={{ marginTop: 30 }}
           color="white"
           size="small"
         />
-      )}
-      {result.spoken_languages && (
+      ) : null}
+      {result.spoken_languages ? (
         <>
           <DataName>Languages</DataName>
           <DataValue>
             {result.spoken_languages.map((l) => `${l.name} `)}
           </DataValue>
         </>
-      )}
-      {result.release_date && (
+      ) : null}
+      {result.release_date ? (
         <>
           <DataName>Release Date</DataName>
           <DataValue>{formatDate(result.release_date)}</DataValue>
         </>
-      )}
-      {result.status && (
+      ) : null}
+      {result.status ? (
         <>
           <DataName>Status</DataName>
           <DataValue>{result.status}</DataValue>
         </>
-      )}
-      {result.runtime && (
+      ) : null}
+      {result.runtime ? (
         <>
           <DataName>Runtime</DataName>
           <DataValue>{`${result.runtime} minutes`}</DataValue>
         </>
-      )}
-      {result.first_air_date && (
+      ) : null}
+      {result.first_air_date ? (
         <>
           <DataName>First Air Date</DataName>
           <DataValue>{formatDate(result.first_air_date)}</DataValue>
         </>
-      )}
-      {result.genres && (
+      ) : null}
+      {result.genres ? (
         <>
           <DataName>Genres</DataName>
           <DataValue>
@@ -127,13 +128,42 @@ export default ({ loading, result }) => (
             )}
           </DataValue>
         </>
-      )}
-      {result.number_of_episodes && result.number_of_seasons && (
+      ) : null}
+      {result.number_of_episodes && result.number_of_seasons ? (
         <>
           <DataName>Seasons / Episodes</DataName>
           <DataValue>{`${result.number_of_seasons} / ${result.number_of_episodes}`}</DataValue>
         </>
-      )}
+      ) : null}
+      {result.imdb_id ? (
+        <>
+          <DataName>Links</DataName>
+          <Link
+            text={"IMDB Page"}
+            icon={"imdb"}
+            onPress={() =>
+              openBrowser(`https://www.imdb.com/title/${result.imdb_id}`)
+            }
+          >
+            IMDB Link
+          </Link>
+        </>
+      ) : null}
+      {result.videos.results?.length > 0 ? (
+        <>
+          <DataName>Videos</DataName>
+          {result.videos.results.map((video) => (
+            <Link
+              text={video.name}
+              key={video.id}
+              icon="youtube-play"
+              onPress={() =>
+                openBrowser(`https://www.youtube.com/watch?v=${video.key}`)
+              }
+            />
+          ))}
+        </>
+      ) : null}
     </Data>
   </ScrollContainer>
 );
