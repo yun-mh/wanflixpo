@@ -2,7 +2,13 @@
 
 「Wanflixpo」は映画情報提供アプリケーションです。
 
-Read this in other languages: [English](./README.md), [日本語](./README.ja.md), [한국어](./README.ko.md)
+Read this in other languages: [日本語](./README.md), [English](./README.en.md), [한국어](./README.ko.md)
+
+## リリース
+
+<div style="display: flex; align-items: center;">
+    Android: <a href='https://play.google.com/store/apps/details?id=com.devyun.wanflixpo&hl=en&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="150" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+</div>
 
 ## 使用技術
 
@@ -14,9 +20,11 @@ Read this in other languages: [English](./README.md), [日本語](./README.ja.md
 
 ## スクリーンショット
 
-| <img src="https://coco-for-dogs.s3-ap-northeast-1.amazonaws.com/readme/support_main.png" alt="drawing" width="300"/> | <img src="https://coco-for-dogs.s3-ap-northeast-1.amazonaws.com/readme/support_modal.png" alt="drawing" width="300"/> |
-| :------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: |
-|                                                        メイン                                                        |                                                      モーダル例                                                       |
+| <img src="./assets/screenshots/movies.jpg" alt="drawing" width="300"/> |  <img src="./assets/screenshots/detail.jpg" alt="drawing" width="300"/>   |
+| :--------------------------------------------------------------------: | :-----------------------------------------------------------------------: |
+|                                映画一覧                                |                                 作品詳細                                  |
+| <img src="./assets/screenshots/search.jpg" alt="drawing" width="300"/> | <img src="./assets/screenshots/discovery.jpg" alt="drawing" width="300"/> |
+|                                  検索                                  |                              ディスカバリー                               |
 
 ## 機能
 
