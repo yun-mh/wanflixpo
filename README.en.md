@@ -7,6 +7,7 @@ Read this in other languages: [English](./README.md), [日本語](./README.ja.md
 ## Release
 
 <a href='https://play.google.com/store/apps/details?id=com.devyun.wanflixpo&hl=en&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="150" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+
 Android
 
 ## Technologies
