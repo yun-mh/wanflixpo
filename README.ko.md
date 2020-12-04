@@ -6,9 +6,8 @@ Read this in other languages: [日本語](./README.md), [English](./README.en.md
 
 ## 릴리즈
 
-<div style="display: flex; align-items: center;">
-    Android: <a href='https://play.google.com/store/apps/details?id=com.devyun.wanflixpo&hl=en&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="150" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
-</div>
+<a href='https://play.google.com/store/apps/details?id=com.devyun.wanflixpo&hl=en&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="150" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+Android
 
 ## 사용 기술
 
