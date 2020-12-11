@@ -28,7 +28,7 @@ This project is created with:
 
 ## Features
 
-Wanflix provides features like below.
+Wanflixpo provides features like below.
 
 ### Listing Movies
 
